@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Unity WebGL Player | {{{ PRODUCT_NAME }}}</title>
+  </head>
+  <body style="text-align: center">
+    <div class="nav-container">
+        <header>
+            <a href="index.html" class="logo">.pottroast</a>
+            <nav>
+                <ul>
+                    <li><a href="#">{home}</a></li>
+                    <li><a href="#">{work}</a></li>
+                    <li><a href="#">{contact}</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="social-header">
+            <ul>
+                <li><a href="https://github.com/pottroast" target='_blank' rel="noopener noreferrer"><img src="" alt="Github"></a></li>
+                <li><a href="https://pottroast.itch.io" target="_blank" rel="noopener noreferrer"><img src="" alt="Itch.io"></a></li>
+                <li><a href="https://twitter.com/kylesuie" target="_blank" rel="noopener noreferrer"><img src="" alt="Twitter"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+      <canvas id="unity-canvas" style="width: {{{ WIDTH }}}px; height: {{{ HEIGHT }}}px; background: {{{ BACKGROUND_FILENAME ? 'url(\'Build/' + BACKGROUND_FILENAME.replace(/'/g, '%27') + '\') center / cover' : BACKGROUND_COLOR }}}"></canvas>
+    </div>
+    <footer>
+      <hr>
+      <div class="footer-left">
+          <p class="copyright">&copy;2021 Pottroast | Made with ❤️</p>
+      </div>
+    </footer>
+    <script src="Build/{{{ LOADER_FILENAME }}}"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/{{{ DATA_FILENAME }}}",
+        frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+        codeUrl: "Build/{{{ CODE_FILENAME }}}",
+        #if MEMORY_FILENAME
+        memoryUrl: "Build/{{{ MEMORY_FILENAME }}}",
+        #endif
+        #if SYMBOLS_FILENAME
+        symbolsUrl: "Build/{{{ SYMBOLS_FILENAME }}}",
+        #endif
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "{{{ COMPANY_NAME }}}",
+        productName: "{{{ PRODUCT_NAME }}}",
+        productVersion: "{{{ PRODUCT_VERSION }}}",
+      });
+    </script>
+  </body>
+</html>
