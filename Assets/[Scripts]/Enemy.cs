@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Vector2 distance = player.position - transform.position;
-        Debug.Log(distance);
+        //Debug.Log(distance);
         distance.Normalize();
         movement = distance;
     }
