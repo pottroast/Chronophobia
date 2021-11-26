@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 1;
     public Rigidbody2D rb;
 
+    public Animator animator;
+
     Vector2 movement;
 
     public List<string> items;
@@ -21,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ProcessInputs();
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     void FixedUpdate()
