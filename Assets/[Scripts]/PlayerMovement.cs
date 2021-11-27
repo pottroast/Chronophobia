@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
     //Memcore Pickup I hope it works
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //THIS CODE SUCKS BUT IM TOO AFRIAD TO FIX IT
         if (collision.CompareTag("MemCore"))
         {
             //Knows what type of object is picked up refrencing memcore script

@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     Vector2 movement;
 
+    public LevelReload levelReload;
+
     public float moveSpeed = 5;
 
     void Start()
@@ -37,5 +39,13 @@ public class Enemy : MonoBehaviour
     void MoveEnemy(Vector2 direction)
     {
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+           levelReload.ReloadLevel();
+        }
     }
 }
